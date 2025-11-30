@@ -21,6 +21,7 @@ A Streamlit web application for detecting emotions from Hindi and Indian English
 This application uses a fine-tuned **Wav2Vec2-XLSR-53** model trained on the IESC (Indian Emotional Speech Corpus) dataset for emotion classification.
 
 ### Model Architecture
+
 - Base model: `Wav2Vec2ForSequenceClassification`
 - Hidden size: 1024
 - Attention heads: 16
@@ -29,12 +30,14 @@ This application uses a fine-tuned **Wav2Vec2-XLSR-53** model trained on the IES
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/DeepanIsCool/hindi_emotion_detection.git
 cd hindi_emotion_detection
 ```
 
 2. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -51,6 +54,7 @@ pip install -r requirements.txt
 ## Usage
 
 Run the Streamlit app:
+
 ```bash
 streamlit run app.py
 ```
@@ -58,6 +62,7 @@ streamlit run app.py
 Then open your browser and navigate to the URL shown in the terminal (typically `http://localhost:8501`).
 
 ### How to use:
+
 1. Upload a `.wav` audio file using the file uploader
 2. Wait for the model to analyze the audio
 3. View the detected emotion and confidence score
