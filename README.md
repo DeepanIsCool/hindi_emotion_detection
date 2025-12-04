@@ -27,6 +27,33 @@ This application uses a fine-tuned **Wav2Vec2-XLSR-53** model trained on the IES
 - Attention heads: 16
 - Hidden layers: 24
 
+### Model Formats
+
+The model is available in two formats:
+
+- **SafeTensors** (`model.safetensors`) - Default format used by Hugging Face Transformers
+- **ONNX** (`model.onnx`) - Optimized format for faster inference and cross-platform deployment
+
+#### Using the ONNX Model
+
+The ONNX model can be used for faster inference or deployment in environments where PyTorch is not available:
+
+```python
+import onnxruntime as ort
+
+# Load ONNX model
+session = ort.InferenceSession("hindi_emotion_model/model.onnx")
+
+# Run inference
+outputs = session.run(None, {"input_values": audio_input})
+```
+
+To use ONNX runtime, install it via:
+
+```bash
+pip install onnxruntime
+```
+
 ## Installation
 
 1. Clone the repository:
@@ -77,8 +104,10 @@ hindi_emotion_detection/
 ├── README.md                 # This file
 └── hindi_emotion_model/      # Pre-trained model files
     ├── config.json           # Model configuration
-    ├── model.safetensors     # Model weights
-    └── preprocessor_config.json  # Feature extractor config
+    ├── model.safetensors     # Model weights (SafeTensors format)
+    ├── model.onnx            # Model weights (ONNX format)
+    ├── preprocessor_config.json  # Feature extractor config
+    └── training_args.bin     # Training arguments
 ```
 
 ## Notes
